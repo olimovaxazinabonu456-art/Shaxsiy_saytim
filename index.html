@@ -3,216 +3,242 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Olimova Xazinabonu| Senior Portfolio</title>
+    <title>Safarova Aziza | Professional Portfolio</title>
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
-    
+
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&display=swap');
+
         :root {
-            --accent: #00f2fe;
-            --secondary: #4facfe;
-            --dark-bg: #050505;
-            --glass: rgba(255, 255, 255, 0.03);
+            --primary-glow: #00d2ff;
+            --secondary-glow: #3a7bd5;
+            --dark-surface: #0a0a0c;
+            --text-main: #e2e8f0;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-            cursor: none; /* Maxsus kursor uchun */
+            font-family: 'Space Grotesk', sans-serif;
         }
 
         body {
-            background: var(--dark-bg);
-            height: 100vh;
+            background: var(--dark-surface);
+            min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
             overflow: hidden;
+            color: var(--text-main);
         }
 
-        /* Maxsus Kursor */
-        #cursor {
-            width: 20px;
-            height: 20px;
-            background: var(--accent);
-            border-radius: 50%;
-            position: fixed;
-            pointer-events: none;
-            z-index: 9999;
-            transition: transform 0.1s;
-            mix-blend-mode: difference;
-        }
-
-        /* Orqa fondagi animatsiya */
-        .bg-animate {
+        /* Orqa fondagi dinamik effekt */
+        .bg-mesh {
             position: absolute;
             width: 100%;
             height: 100%;
-            background: radial-gradient(circle at 50% 50%, #1a1a2e 0%, #050505 100%);
+            background: 
+                radial-gradient(at 0% 0%, rgba(58, 123, 213, 0.15) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(0, 210, 255, 0.15) 0px, transparent 50%);
             z-index: -1;
         }
 
         /* Asosiy Karta */
-        .portfolio-card {
-            width: 420px;
-            padding: 50px 40px;
-            background: var(--glass);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 30px;
-            text-align: center;
+        .glass-card {
             position: relative;
-            box-shadow: 0 40px 60px rgba(0,0,0,0.5);
+            width: 450px;
+            padding: 60px 40px;
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 40px;
+            text-align: center;
+            box-shadow: 0 50px 100px rgba(0, 0, 0, 0.8);
             transform-style: preserve-3d;
         }
 
-        /* Profil ramkasi (Neon effekt) */
-        .img-box {
-            width: 140px;
-            height: 140px;
-            margin: 0 auto 25px;
+        /* Profil rasmi - Siz yuborgan rasm uchun maxsus */
+        .profile-container {
             position: relative;
-            transform: translateZ(50px);
+            width: 160px;
+            height: 160px;
+            margin: 0 auto 30px;
+            transform: translateZ(60px);
         }
 
-        .img-box img {
+        .main-img {
             width: 100%;
             height: 100%;
-            border-radius: 50%;
+            border-radius: 35%; /* Squircle shakli */
             object-fit: cover;
-            border: 2px solid rgba(255,255,255,0.2);
+            border: 2px solid rgba(0, 210, 255, 0.5);
+            box-shadow: 0 0 30px rgba(0, 210, 255, 0.2);
         }
 
-        .img-box::before {
-            content: '';
+        .online-badge {
             position: absolute;
-            top: -10px; left: -10px; right: -10px; bottom: -10px;
-            border-radius: 50%;
-            background: linear-gradient(45deg, var(--accent), var(--secondary));
-            z-index: -1;
-            filter: blur(15px);
-            opacity: 0.6;
+            top: 5px;
+            right: 5px;
+            padding: 5px 12px;
+            background: #22c55e;
+            color: white;
+            font-size: 10px;
+            font-weight: bold;
+            border-radius: 20px;
+            text-transform: uppercase;
+            box-shadow: 0 0 15px #22c55e;
         }
 
         h1 {
-            color: #fff;
-            font-size: 28px;
+            font-size: 32px;
             font-weight: 700;
-            letter-spacing: 1px;
-            transform: translateZ(40px);
+            background: linear-gradient(to right, #fff, #3a7bd5);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
         }
 
-        .dev-title {
-            color: var(--accent);
+        .typewriter {
             font-size: 14px;
+            color: var(--primary-glow);
+            letter-spacing: 2px;
             text-transform: uppercase;
-            font-weight: 500;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             display: block;
         }
 
-        /* Bilimlar darajasi (Skills) */
-        .skills-container {
-            margin: 25px 0;
-            text-align: left;
+        /* Info bo'limi */
+        .bio {
+            font-size: 15px;
+            color: #94a3b8;
+            line-height: 1.7;
+            margin-bottom: 30px;
         }
 
-        .skill-tag {
-            display: inline-block;
-            background: rgba(255,255,255,0.05);
-            color: #ccc;
-            padding: 5px 12px;
-            border-radius: 8px;
-            font-size: 11px;
-            margin: 3px;
-            border: 1px solid rgba(255,255,255,0.1);
+        /* Skill list */
+        .skill-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-bottom: 35px;
+        }
+
+        .skill-item {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 8px;
+            border-radius: 12px;
+            font-size: 12px;
+            border: 1px solid rgba(255,255,255,0.05);
             transition: 0.3s;
-        }
-
-        .skill-tag:hover {
-            background: var(--accent);
+        }.skill-item:hover {
+            background: var(--primary-glow);
             color: #000;
-            transform: translateY(-3px);
+            font-weight: bold;
         }
 
-        /* Tugmalar */
-        .actions {
-            margin-top: 30px;
+        /* Buttons */
+        .btn-wrap {
             display: flex;
             gap: 15px;
-        }.btn {
-            flex: 1;
-            padding: 12px;
-            border-radius: 12px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 14px;
-            transition: 0.4s;
         }
 
-        .btn-main {
-            background: #fff;
+        .btn-cyber {
+            flex: 1;
+            padding: 15px;
+            border-radius: 15px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 14px;
+            transition: 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            background: var(--primary-glow);
             color: #000;
         }
 
-        .btn-outline {
-            border: 1px solid rgba(255,255,255,0.2);
+        .btn-secondary {
+            border: 1px solid rgba(255, 255, 255, 0.1);
             color: #fff;
         }
 
-        .btn:hover {
+        .btn-cyber:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(0, 210, 255, 0.4);
+        }
+
+        /* Ijtimoiy tarmoqlar */
+        .social-row {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .social-row a {
+            color: #94a3b8;
+            font-size: 20px;
+            transition: 0.3s;
+        }
+
+        .social-row a:hover {
+            color: var(--primary-glow);
             transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,242,254,0.2);
         }
     </style>
 </head>
 <body>
 
-    <div id="cursor"></div>
-    <div class="bg-animate"></div>
+    <div class="bg-mesh"></div>
 
-    <div class="portfolio-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.2">
-        <div class="img-box">
-            <img src="https://via.placeholder.com/150" alt="Olimova Xazinabonu">
+    <div class="glass-card" data-tilt data-tilt-max="10" data-tilt-glare data-tilt-max-glare="0.1">
+        <div class="profile-container">
+            <img src="5305311395966554518.jpg" class="main-img" alt="Safarova Aziza">
+            <div class="online-badge">Active</div>
         </div>
 
-        <span class="dev-title">Mathematics & AI Specialist</span>
-        <h1>Olimova Xazinabonu</h1>
-        <p style="color: #888; font-size: 13px; margin-top: 10px;">
-            Qarshi davlat universiteti, ATT yo'nalishi talabasi. Web-development va AI tadqiqotchisi.
+        <span class="typewriter">IT Specialist & Researcher</span>
+        <h1>Safarova Aziza</h1>
+        
+        <p class="bio">
+            Qarshi davlat universiteti talabasi. Matematika va zamonaviy IT texnologiyalari uyg'unligida innovatsion loyihalar yaratuvchisi.
         </p>
 
-        <div class="skills-container">
-            <div class="skill-tag">Python</div>
-            <div class="skill-tag">JavaScript</div>
-            <div class="skill-tag">Discrete Math</div>
-            <div class="skill-tag">TensorFlow</div>
-            <div class="skill-tag">HTML/CSS</div>
+        <div class="skill-grid">
+            <div class="skill-item">Python</div>
+            <div class="skill-item">AI/ML</div>
+            <div class="skill-item">Full-Stack</div>
+            <div class="skill-item">Math</div>
+            <div class="skill-item">GitHub</div>
+            <div class="skill-item">Cloud</div>
         </div>
 
-        <div class="actions">
-            <a href="https://t.me/your_username" class="btn btn-main">Bog'lanish</a>
-            <a href="https://github.com/your_username" class="btn btn-outline">Loyihalar</a>
+        <div class="btn-wrap">
+            <a href="https://t.me/your_username" class="btn-cyber btn-primary">Xabar yuborish</a>
+            <a href="#" class="btn-cyber btn-secondary">Portfolio</a>
+        </div>
+
+        <div class="social-row">
+            <a href="#"><i class="fab fa-telegram"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fab fa-github"></i></a>
         </div>
     </div>
 
     <script>
-        // Maxsus kursor harakati
-        const cursor = document.getElementById('cursor');
-        document.addEventListener('mousemove', (e) => {
-            cursor.style.left = e.clientX + 'px';
-            cursor.style.top = e.clientY + 'px';
-        });
-
-        // Tilt effekti init
-        VanillaTilt.init(document.querySelector(".portfolio-card"), {
-            max: 15,
+        // Tilt effekti sozlamalari
+        VanillaTilt.init(document.querySelector(".glass-card"), {
+            max: 10,
             speed: 400,
             glare: true,
-            "max-glare": 0.2,
+            "max-glare": 0.1,
         });
     </script>
 </body>
