@@ -14,8 +14,8 @@
         :root {
             --primary: #00d2ff;
             --bg: #050505;
-            --glass: rgba(255, 255, 255, 0.05);
-            --border: rgba(255, 255, 255, 0.1);
+            --glass: rgba(255, 255, 255, 0.08);
+            --border: rgba(255, 255, 255, 0.15);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; }
@@ -27,9 +27,9 @@
             flex-direction: column;
             align-items: center;
             padding: 40px 20px;
-            /* Orqa fon rasmi */
-            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), 
-                        url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1600&q=80');
+            /* Ishonchli orqa fon rasmi */
+            background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), 
+                        url('https://images.unsplash.com/photo-1510511459019-5dee99214ff0?auto=format&fit=crop&w=1600&q=80');
             background-attachment: fixed;
             background-size: cover;
             background-position: center;
@@ -37,7 +37,6 @@
 
         .container { width: 100%; max-width: 850px; }
 
-        /* HEADER & PROFILE */
         .profile-card {
             background: var(--glass); backdrop-filter: blur(15px);
             border: 1px solid var(--border); border-radius: 40px;
@@ -46,53 +45,47 @@
         .profile-img {
             width: 150px; height: 150px; border-radius: 35%;
             object-fit: cover; border: 2px solid var(--primary);
-            margin-bottom: 20px; box-shadow: 0 0 30px rgba(0, 210, 255, 0.2);
+            margin-bottom: 20px; box-shadow: 0 0 30px rgba(0, 210, 255, 0.3);
         }
 
-        /* MEN HAQIMDA SECTION */
-        .about-box {
-            background: var(--glass); border: 1px solid var(--border);
-            border-radius: 30px; padding: 30px; margin-bottom: 30px;
-            backdrop-filter: blur(10px); line-height: 1.8;
-        }
-
-        /* SECTION TITLES */
         .section-header { display: flex; align-items: center; gap: 15px; margin: 40px 0 20px; }
         .section-header h2 { font-size: 22px; font-weight: 600; }
         .line { flex: 1; height: 1px; background: var(--border); }
 
-        /* SKILLS */
+        .about-box {
+            background: var(--glass); border: 1px solid var(--border);
+            border-radius: 30px; padding: 30px; backdrop-filter: blur(10px); line-height: 1.8;
+        }
+
         .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
         .skill-bar { background: rgba(255,255,255,0.1); height: 8px; border-radius: 10px; margin-top: 5px; overflow: hidden; }
         .fill { height: 100%; background: var(--primary); }
 
-        /* SINGLE ARTICLE */
         .article-box {
             background: linear-gradient(135deg, rgba(58, 123, 213, 0.2), rgba(0, 210, 255, 0.1));
             border: 1px solid rgba(0, 210, 255, 0.3);
             border-radius: 25px; padding: 30px; text-decoration: none; color: inherit;
-            display: flex; justify-content: space-between; align-items: center;
+            display: flex; justify-content: space-between; align-items: center; transition: 0.3s;
         }
+        .article-box:hover { transform: scale(1.02); border-color: var(--primary); }
 
-        /* CERTIFICATES */
         .certs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; }
         .cert-item { 
-            background: var(--glass); border-radius: 20px; padding: 10px; 
+            background: var(--glass); border-radius: 20px; padding: 12px; 
             border: 1px solid var(--border); cursor: pointer; transition: 0.3s;
         }
-        .cert-item img { width: 100%; border-radius: 15px; }
+        .cert-item:hover { border-color: var(--primary); }
+        .cert-item img { width: 100%; border-radius: 15px; object-fit: cover; }
 
-        /* BOOKS */
         .books-container { display: flex; gap: 20px; overflow-x: auto; padding-bottom: 10px; scrollbar-width: none; }
-        .book { min-width: 150px; text-align: center; background: var(--glass); padding: 15px; border-radius: 20px; border: 1px solid var(--border); }
-        .book img { width: 100%; height: 180px; object-fit: cover; border-radius: 10px; margin-bottom: 10px; }/* LIGHTBOX MODAL */
-        #lightbox {
+        .book { min-width: 160px; text-align: center; background: var(--glass); padding: 15px; border-radius: 20px; border: 1px solid var(--border); }
+        .book img { width: 100%; height: 220px; object-fit: cover; border-radius: 10px; margin-bottom: 10px; }#lightbox {
             display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.95); z-index: 9999; justify-content: center; align-items: center;
+            background: rgba(0,0,0,0.9); z-index: 9999; justify-content: center; align-items: center;
         }
         #lightbox.active { display: flex; }
         #lightbox img { max-width: 90%; max-height: 80%; border: 2px solid var(--primary); border-radius: 10px; }
-        .close { position: absolute; top: 30px; right: 40px; font-size: 50px; cursor: pointer; }
+        .close { position: absolute; top: 30px; right: 40px; font-size: 50px; cursor: pointer; color: #fff; }
 
         @media (max-width: 600px) { .skills-grid { grid-template-columns: 1fr; } }
     </style>
@@ -102,7 +95,7 @@
     <div class="container">
         
         <div class="profile-card" data-tilt>
-            <img src="5305311395966554518.jpg" class="profile-img" alt="Xazinabonu">
+            <img src="5305311395966554518.jpg" class="profile-img" alt="Xazinabonu Profil">
             <span style="color: var(--primary); font-size: 12px; letter-spacing: 2px; text-transform: uppercase;">IT Specialist & Researcher</span>
             <h1 style="margin: 10px 0;">Olimova Xazinabonu Muxtor qizi</h1>
             <p style="color: #94a3b8; font-size: 15px;">Qarshi davlat universiteti talabasi</p>
@@ -110,9 +103,8 @@
 
         <div class="section-header"><h2>Men haqimda</h2><div class="line"></div></div>
         <div class="about-box">
-            Salom! Men <b>Olimova Xazinabonu</b>, Qarshi davlat universitetining "Matematika va kompyuter ilmlari" yo'nalishi talabasiman. 
-            Mening asosiy maqsadim — zamonaviy texnologiyalar, sun'iy intellekt va tarqalgan tizimlar sohasida yuqori malakali IT mutaxassisi bo'lish. 
-            Hozirda ilmiy maqolalar yozish va murakkab dasturiy yechimlar ustida ishlamoqdaman. Ilm-fanga bo'lgan qiziqishim meni doimo yangi bilimlarni egallashga undaydi.
+            Salom! Men <b>Olimova Xazinabonu</b>, Matematika va IT sohasiga qiziquvchi tadqiqotchiman. 
+            Maqsadim — tarqalgan tizimlar va sun'iy intellekt orqali jamiyatga foyda keltirish.
         </div>
 
         <div class="section-header"><h2>Bilim Darajasi</h2><div class="line"></div></div>
@@ -125,58 +117,33 @@
         <a href="https://journalss.org/index.php/mod/article/view/10208/9827" class="article-box" target="_blank">
             <div>
                 <h3 style="font-size: 18px; margin-bottom: 5px;">Models of Distributed Computing Systems</h3>
-                <p style="color: #94a3b8; font-size: 14px;">Tarqalgan tizimlar va bulutli hisoblashlar tahlili.</p>
+                <p style="color: #94a3b8; font-size: 14px;">Ilmiy tadqiqot ishi • 2026</p>
             </div>
             <i class="fas fa-external-link-alt" style="color: var(--primary);"></i>
         </a>
 
         <div class="section-header"><h2>Sertifikatlarim</h2><div class="line"></div></div>
         <div class="certs-grid">
-            <div class="cert-item" onclick="zoomImg('https://via.placeholder.com/600x400/00d2ff/000000?text=Maqola+Sertifikati')">
-                <img src="https://via.placeholder.com/400x250/00d2ff/000000?text=Scientific+Work" alt="Maqola">
-                <p style="font-size: 12px; text-align: center; margin-top: 5px;">Ilmiy Maqola Sertifikati</p>
+            <div class="cert-item" onclick="zoomImg('https://images.unsplash.com/photo-1586281380349-632531db7ed4?auto=format&fit=crop&w=800')">
+                <img src="https://images.unsplash.com/photo-1586281380349-632531db7ed4?auto=format&fit=crop&w=400" alt="Cert 1">
+                <p style="font-size: 12px; text-align: center; margin-top: 8px;">Ilmiy Maqola Sertifikati</p>
             </div>
-            <div class="cert-item" onclick="zoomImg('https://via.placeholder.com/600x400/3a7bd5/ffffff?text=IT+Certificate')">
-                <img src="https://via.placeholder.com/400x250/3a7bd5/ffffff?text=IT+Course" alt="Sertifikat">
-                <p style="font-size: 12px; text-align: center; margin-top: 5px;">IT Kurs Sertifikati</p>
+            <div class="cert-item" onclick="zoomImg('https://images.unsplash.com/photo-1523240715639-9978119710d2?auto=format&fit=crop&w=800')">
+                <img src="https://images.unsplash.com/photo-1523240715639-9978119710d2?auto=format&fit=crop&w=400" alt="Cert 2">
+                <p style="font-size: 12px; text-align: center; margin-top: 8px;">IT Kurs Sertifikati</p>
             </div>
         </div>
 
         <div class="section-header"><h2>Mutolaa</h2><div class="line"></div></div>
         <div class="books-container">
             <div class="book">
-                <img src="https://assets.asaxiy.uz/product/main_image/desktop/2569528d2d992e59e51c8651f50a863a.jpg" alt="Book"><h4>So'nggi nido</h4>
+                <img src="https://assets.asaxiy.uz/product/main_image/desktop/2569528d2d992e59e51c8651f50a863a.jpg" alt="Akbar Mirzo">
+                <h4>So'nggi nido</h4>
                 <p style="font-size: 11px; color: #94a3b8;">Akbar Mirzo</p>
             </div>
             <div class="book">
-                <img src="https://assets.asaxiy.uz/product/main_image/desktop/c81e728d9d4c2f636f067f89cc14862c.jpg" alt="Book">
+                <img src="https://assets.asaxiy.uz/product/main_image/desktop/c81e728d9d4c2f636f067f89cc14862c.jpg" alt="Islom Karimov">
                 <h4>Yuksak ma'naviyat</h4>
                 <p style="font-size: 11px; color: #94a3b8;">Islom Karimov</p>
             </div>
         </div>
-
-        <div class="section-header"><h2>Qiziqishlarim</h2><div class="line"></div></div>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px;">
-            <div style="background:var(--glass); padding:20px; border-radius:15px; text-align:center;"><i class="fas fa-plane"></i> Sayohat</div>
-            <div style="background:var(--glass); padding:20px; border-radius:15px; text-align:center;"><i class="fas fa-shopping-bag"></i> Shopping</div>
-            <div style="background:var(--glass); padding:20px; border-radius:15px; text-align:center;"><i class="fas fa-code"></i> IT Dunyosi</div>
-            <div style="background:var(--glass); padding:20px; border-radius:15px; text-align:center;"><i class="fas fa-leaf"></i> Tabiat</div>
-        </div>
-
-    </div>
-
-    <div id="lightbox">
-        <span class="close" onclick="closeZoom()">&times;</span>
-        <img id="zoom-img" src="">
-    </div>
-
-    <script>
-        VanillaTilt.init(document.querySelector(".profile-card"), { max: 10, speed: 400 });
-        const lightbox = document.getElementById('lightbox');
-        const zoomImgBox = document.getElementById('zoom-img');
-        function zoomImg(src) { lightbox.classList.add('active'); zoomImgBox.src = src; }
-        function closeZoom() { lightbox.classList.remove('active'); }
-        lightbox.onclick = function(e) { if(e.target !== zoomImgBox) closeZoom(); }
-    </script>
-</body>
-</html>
