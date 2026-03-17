@@ -12,203 +12,202 @@
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;500;700&display=swap');
 
         :root {
-            --primary-orange: #f39c12; /* "Afruza" uslubidagi tilla rang */
-            --dark-side: #1c1c1e;
-            --dark-main: #111113;
-            --glass: rgba(44, 44, 46, 0.9);
+            --primary: #f39c12; 
+            --dark-side: rgba(28, 28, 30, 0.9); /* Shaffoflik qo'shildi */
+            --glass: rgba(44, 44, 46, 0.85); /* Shaffoflik qo'shildi */
             --border: rgba(255, 255, 255, 0.08);
-            --text-light: #aaa;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; }
 
         body {
-            background-color: var(--dark-main);
             color: #fff;
             display: flex;
             min-height: 100vh;
             scroll-behavior: smooth;
+            
+            /* ORQA FON RASMI QO'SHILDI */
+            background-image: url('https://images.unsplash.com/photo-1510511459019-5dee99214ff0?q=80&w=2070&auto=format&fit=crop'); /* Bu yerga o'z rasmingiz linkini qo'yishingiz mumkin */
+            background-size: cover; /* Rasmni butun ekranga yoyadi */
+            background-position: center; /* Rasmni markazlashtiradi */
+            background-attachment: fixed; /* Sahifa aylanganda rasm joyida turadi */
         }
 
-        /* 1. SIDEBAR (Chap menyu) - Rasmdagi kabi */
+        /* SIDEBAR (Shaffofroq qilindi) */
         .sidebar {
-            width: 270px;
+            width: 280px;
             background-color: var(--dark-side);
+            backdrop-filter: blur(10px); /* Xiralashtirish effekti */
             border-right: 1px solid var(--border);
             padding: 40px 20px;
             display: flex;
             flex-direction: column;
             position: fixed;
             height: 100vh;
-            z-index: 100;
+            z-index: 1000;
         }
 
         .logo {
             font-size: 20px;
             font-weight: 700;
-            letter-spacing: 3px;
-            margin-bottom: 50px;
-            border: 2px solid #fff;
+            letter-spacing: 4px;
+            margin-bottom: 40px;
+            border: 2px solid var(--primary);
             padding: 10px;
             text-align: center;
+            color: var(--primary);
         }
 
         .nav-menu { list-style: none; flex-grow: 1; }
-        .nav-item {
+        .nav-link {
             padding: 15px;
             margin-bottom: 8px;
             border-radius: 12px;
-            cursor: pointer;
-            transition: 0.3s;
             display: flex;
             align-items: center;
             gap: 15px;
-            color: var(--text-light);
+            color: #aaa;
             text-decoration: none;
+            transition: 0.3s;
             font-size: 14px;
         }
-        .nav-item:hover, .nav-item.active {
-            background-color: var(--primary-orange);
+        .nav-link:hover, .nav-link.active {
+            background: var(--primary);
             color: #000;
         }
-        .nav-item i { width: 20px; text-align: center; }
 
-        /* 2. MAIN CONTENT (O'ng qism) */
+        /* MAIN CONTENT */
         .main-content {
-            margin-left: 270px;
+            margin-left: 280px;
             padding: 40px;
-            width: calc(100% - 270px);
+            width: calc(100% - 280px);
         }
 
-        /* TOP STATS (Rasmdagi kabi tilla bloklar) */
-        .stats-row {
+        /* STATISTIKA (Shaffofroq qilindi) */
+        .stats-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 20px;
             margin-bottom: 40px;
         }
         .stat-card {
-            background: var(--dark-side);
-            padding: 30px;
+            background: rgba(28, 28, 30, 0.8); /* Shaffof fon */
+            backdrop-filter: blur(5px);
+            padding: 25px;
             border-radius: 20px;
             text-align: center;
+            border-bottom: 3px solid var(--primary);
             border: 1px solid var(--border);
         }
-        .stat-value {
-            font-size: 36px;
-            font-weight: 700;
-            color: var(--primary-orange);
-            display: block;
-            margin-bottom: 5px;
-        }
-        .stat-desc { color: var(--text-light); font-size: 14px; text-transform: uppercase; letter-spacing: 1px;}
+        .stat-num { font-size: 32px; font-weight: 700; color: var(--primary); display: block; }
 
-        /* MAIN PANEL TITLE */
-        .panel-title {
-            text-align: center;
-            font-size: 32px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            margin-top: 50px;
-            margin-bottom: 30px;
-            color: #fff;
-        }
-
-        /* BLOKLAR UCHUN UMUMIY GLASS PANEL */
+        /* PANELS (Shaffofroq qilindi) */
         .glass-panel {
             background: var(--glass);
-            backdrop-filter: blur(15px);
+            backdrop-filter: blur(10px); /* Xiralashtirish effekti */
             border: 1px solid var(--border);
             border-radius: 25px;
-            padding: 40px;
+            padding: 35px;
             margin-bottom: 30px;
-        }/* PROFIL (Eski koddagi rasm va ism) */
-        .profile-section { display: flex; gap: 30px; align-items: center; }
+        }.section-title {
+            font-size: 24px;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-left: 4px solid var(--primary);
+            padding-left: 15px;
+        }
+
+        /* PROFIL */
+        .profile-box { display: flex; gap: 30px; align-items: center; }
         .profile-img {
-            width: 160px; height: 160px;
-            border-radius: 30px;
-            border: 3px solid var(--primary-orange);
+            width: 150px; height: 150px;
+            border-radius: 25px;
+            border: 2px solid var(--primary);
             object-fit: cover;
         }
 
-        /* PROGRESS BAR (Eski koddagi bilimlar) */
-        .skill-item { margin-bottom: 20px; }
-        .skill-info { display: flex; justify-content: space-between; font-size: 14px; margin-bottom: 6px; }
-        .bar-bg { width: 100%; height: 10px; background: rgba(255,255,255,0.05); border-radius: 10px; overflow: hidden; }
-        .bar-fill { height: 100%; background: linear-gradient(90deg, #e67e22, var(--primary-orange)); border-radius: 10px; box-shadow: 0 0 10px var(--primary-orange); }
-
-        /* MAQOLA (Eski koddagi link) */
-        .article-card {
-            background: rgba(255,255,255,0.03);
-            border-radius: 20px;
-            padding: 30px;
-            text-decoration: none;
-            color: inherit;
+        /* MUTOLAA (KITOBLAR) */
+        .books-scroll {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: 0.3s;
+            gap: 20px;
+            overflow-x: auto;
+            padding-bottom: 15px;
+            scrollbar-width: thin;
+        }
+        .book-card {
+            min-width: 160px;
+            text-align: center;
+        }
+        .book-card img {
+            width: 100%;
+            height: 220px;
+            border-radius: 15px;
+            object-fit: cover;
+            margin-bottom: 10px;
             border: 1px solid var(--border);
         }
-        .article-card:hover { transform: translateX(10px); border-color: var(--primary-orange); }
 
-        /* GALEREYA (YANGI BO'LIM) */
+        /* GALEREYA */
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: 1fr 1fr;
             gap: 20px;
         }
         .gallery-item {
-            position: relative;
+            border-radius: 20px;
             overflow: hidden;
-            border-radius: 15px;
-            border: 1px solid var(--border);
+            height: 300px;
+            position: relative;
             cursor: pointer;
-            transition: 0.3s;
         }
-        .gallery-item:hover { border-color: var(--primary-orange); }
         .gallery-item img {
-            width: 100%; height: 300px;
-            object-fit: cover;
+            width: 100%; height: 100%; object-fit: cover;
             transition: 0.5s;
         }
         .gallery-item:hover img { transform: scale(1.1); }
-        .gallery-caption {
-            position: absolute; bottom: 0; left: 0; width: 100%;
-            background: rgba(0,0,0,0.7); color: #fff;
-            padding: 10px; text-align: center; font-size: 12px;
-        }
 
-        /* ALOQA BO'LIMI (YANGI BO'LIM) */
-        .contact-row {
-            display: grid; grid-template-columns: 1fr 1fr; gap: 30px;
+        /* ALOQA */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
         }
-        .contact-links { list-style: none; color: var(--text-light); line-height: 2; }
         .contact-form input, .contact-form textarea {
             width: 100%; padding: 12px; margin-bottom: 15px;
-            border-radius: 10px; border: none; background: #fff;
-            color: #333;
+            border-radius: 10px; border: 1px solid var(--border);
+            background: rgba(255,255,255,0.1); /* Shaffofroq */
+            color: #fff;
         }
         .btn-send {
-            background: var(--primary-orange); color: #000;
-            padding: 12px 25px; border-radius: 10px; border: none;
-            font-weight: 700; cursor: pointer; width: 100%;
+            background: var(--primary);
+            color: #000;
+            padding: 12px;
+            border: none;
+            border-radius: 10px;
+            font-weight: 700;
+            width: 100%;
+            cursor: pointer;
         }
 
-        /* ZOOM MODAL */
-        #zoom-modal {
-            display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.95);
-            z-index: 10000; justify-content: center; align-items: center; padding: 20px;
+        /* LIGHTBOX */
+        #lightbox {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.95);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
         }
-        #zoom-modal.active { display: flex; }
-        #zoom-modal img { max-width: 90%; max-height: 85%; border-radius: 10px; border: 2px solid var(--primary-orange); }
+        #lightbox.active { display: flex; }
+        #lightbox img { max-width: 90%; max-height: 80%; border: 2px solid var(--primary); border-radius: 10px; }
 
-        @media (max-width: 992px) {
-            body { flex-direction: column; }
+        @media (max-width: 900px) {
             .sidebar { width: 100%; height: auto; position: relative; border-right: none; border-bottom: 1px solid var(--border); }
+            body { flex-direction: column; }
             .main-content { margin-left: 0; width: 100%; }
-            .stats-row, .gallery-grid, .contact-row { grid-template-columns: 1fr; }
+            .stats-grid, .gallery-grid, .contact-container { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -217,77 +216,97 @@
     <div class="sidebar">
         <div class="logo">XAZINABONU</div>
         <nav class="nav-menu">
-            <a href="#dashboard" class="nav-item active"><i class="fas fa-th-large"></i> Dashboard</a><a href="#maqola" class="nav-item"><i class="fas fa-file-alt"></i> Asosiy Maqola</a>
-            <a href="#bilim" class="nav-item"><i class="fas fa-graduation-cap"></i> Bilim Darajasi</a>
-            <a href="#galereya" class="nav-item"><i class="fas fa-images"></i> Galereya</a>
-            <a href="#aloqa" class="nav-item"><i class="fas fa-envelope"></i> Aloqa</a>
+            <a href="#home" class="nav-link active"><i class="fas fa-home"></i> Asosiy</a>
+            <a href="#mutolaa" class="nav-link"><i class="fas fa-book"></i> Mutolaa</a>
+            <a href="#galereya" class="nav-link"><i class="fas fa-images"></i> Galereya</a>
+            <a href="#aloqa" class="nav-link"><i class="fas fa-paper-plane"></i> Aloqa</a>
         </nav>
-        <div style="color: #555; font-size: 11px; text-align: center;">© 2026 Portfolio</div>
     </div>
 
-    <div class="main-content" id="dashboard">
+    <div class="main-content">
         
-        <div class="stats-row">
-            <div class="stat-card">
-                <span class="stat-value">60%</span>
-                <p class="stat-desc">Matematika Bilimi</p>
-            </div>
-            <div class="stat-card">
-                <span class="stat-value">65%</span>
-                <p class="stat-desc">IT & Dasturlash</p>
-            </div>
-            <div class="stat-card">
-                <span class="stat-value">12+</span>
-                <p class="stat-desc">Maqola & Loyihalar</p>
-            </div>
-        </div>
-
-        <div class="glass-panel" data-tilt>
-            <div class="profile-section">
-                <img src="5305311395966554518.jpg" class="profile-img" alt="Xazinabonu">
+        <div class="stats-grid" id="home">
+            <div class="stat-card"><span class="stat-num">90%</span><p>Matematika</p></div>
+            <div class="stat-card"><span class="stat-num">85%</span><p>IT Bilimlar</p></div>
+            <div class="stat-card"><span class="stat-num">2026</span><p>Yil</p></div>
+        </div><div class="glass-panel" data-tilt>
+            <div class="profile-box">
+                <img src="5305311395966554518.jpg" class="profile-img">
                 <div>
-                    <h1 style="font-size: 30px;">Olimova Xazinabonu Muxtor qizi</h1>
-                    <p style="color: var(--primary-orange); margin-top: 5px;">Tadqiqotchi & Talaba | Qarshi DU</p>
-                    <p style="margin-top: 15px; color: var(--text-light); line-height: 1.6;">
-                        Eski koddagi ma'lumot: Matematika va IT sohasiga qiziqaman. Hozirda tarqalgan tizimlar va ularning xavfsizligi bo'yicha ilmiy izlanishlar olib boryapman.
+                    <h1>Olimova Xazinabonu Muxtor qizi</h1>
+                    <p style="color: var(--primary); margin: 5px 0;">Talaba & Tadqiqotchi</p>
+                    <p style="color: #ccc; font-size: 14px; line-height: 1.6;"> Qarshi davlat universiteti talabasi. Hozirda tarqalgan tizimlar va ularning xavfsizligi bo'yicha ilmiy izlanishlar olib boryapman.
                     </p>
                 </div>
             </div>
         </div>
 
-        <h2 class="panel-title" id="bilim">Bilimlarim</h2>
         <div class="glass-panel">
-            <div class="skill-item">
-                <div class="skill-info"><span>Matematika (Algoritmik)</span><span>90%</span></div>
-                <div class="bar-bg"><div class="bar-fill" style="width: 90%;"></div></div>
-            </div>
-            <div class="skill-item">
-                <div class="skill-info"><span>IT & Dasturlash (Full-stack)</span><span>85%</span></div>
-                <div class="bar-bg"><div class="bar-fill" style="width: 85%;"></div></div>
-            </div>
-        </div>
-
-        <h2 class="panel-title" id="maqola">Asosiy Maqolam</h2>
-        <div class="glass-panel">
-            <a href="https://journalss.org/index.php/mod/article/view/10208/9827" class="article-card" target="_blank">
-                <div>
-                    <h3 style="font-size: 18px; margin-bottom: 5px; color: var(--primary-orange);">Models of Distributed Computing Systems</h3>
-                    <p style="font-size: 13px; color: var(--text-light);">Tarqalgan tizimlar tahlili bo'yicha ilmiy tadqiqot • 2026</p>
+            <h2 class="section-title">Asosiy Maqolam</h2>
+            <a href="https://journalss.org/index.php/mod/article/view/10208/9827" style="text-decoration:none; color:inherit;">
+                <div style="background:rgba(255,255,255,0.05); padding:20px; border-radius:15px; border-left:4px solid var(--primary);">
+                    <h3 style="color:var(--primary);">Models of Distributed Computing Systems</h3>
+                    <p style="font-size:13px; color:#aaa; margin-top:5px;">Ilmiy maqolani ko'rish uchun bosing</p>
                 </div>
-                <i class="fas fa-external-link-alt" style="color: var(--primary-orange); font-size: 20px;"></i>
             </a>
         </div>
 
-        <h2 class="panel-title" id="galereya">Galereya</h2>
+        <h2 class="section-title" id="mutolaa">Mutolaa</h2>
         <div class="glass-panel">
-            <div class="gallery-grid">
-                <div class="gallery-item" onclick="zoom(this.children[0].src)">
-                    <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=1000" alt="Kompyuterda ishlayotgan qiz">
-                    <div class="gallery-caption">Dasturlash jarayoni (Ish ustida)</div>
+            <div class="books-scroll">
+                <div class="book-card">
+                    <img src="https://assets.asaxiy.uz/product/main_image/desktop/2569528d2d992e59e51c8651f50a863a.jpg">
+                    <p style="font-size:13px;">So'nggi nido</p>
                 </div>
-                <div class="gallery-item" onclick="zoom(this.children[0].src)">
-                    <img src="https://images.unsplash.com/photo-1543269602-5369688a2e16?q=80&w=1000" alt="Tabiatda o'tirgan qiz">
-                    <div class="gallery-caption">Mutolaa va ijod (Tabiat bag'rida)</div>
+                <div class="book-card">
+                    <img src="https://assets.asaxiy.uz/product/main_image/desktop/c81e728d9d4c2f636f067f89cc14862c.jpg">
+                    <p style="font-size:13px;">Yuksak ma'naviyat</p>
                 </div>
             </div>
         </div>
+
+        <h2 class="section-title" id="galereya">Galereya</h2>
+        <div class="glass-panel">
+            <div class="gallery-grid">
+                <div class="gallery-item" onclick="openImg(this.children[0].src)">
+                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1000">
+                    <div style="position:absolute; bottom:10px; left:10px; font-size:12px; background:rgba(0,0,0,0.6); padding:5px; border-radius: 5px;">Kompyuterda ish jarayoni</div>
+                </div>
+                <div class="gallery-item" onclick="openImg(this.children[0].src)">
+                    <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=1000">
+                    <div style="position:absolute; bottom:10px; left:10px; font-size:12px; background:rgba(0,0,0,0.6); padding:5px; border-radius: 5px;">Tabiat qo'ynida</div>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="section-title" id="aloqa">Aloqa</h2>
+        <div class="glass-panel">
+            <div class="contact-container">
+                <div>
+                    <p style="margin-bottom:15px;"><i class="fab fa-telegram" style="color:#0088cc; font-size: 1.2em;"></i> @xazinabonu_admin</p>
+                    <p style="margin-bottom:15px;"><i class="fas fa-envelope" style="color:#f1c40f; font-size: 1.2em;"></i> info@xazinabonu.uz</p>
+                    <p><i class="fas fa-location-dot" style="color:#e74c3c; font-size: 1.2em;"></i> Qarshi, O'zbekiston</p>
+                </div>
+                <div class="contact-form">
+                    <input type="text" placeholder="Ismingiz">
+                    <textarea placeholder="Xabaringiz" rows="4"></textarea>
+                    <button class="btn-send">Yuborish</button>
+                </div>
+            </div>
+        </div>
+
+        <div style="height: 20px;"></div>
+    </div>
+
+    <div id="lightbox" onclick="this.classList.remove('active')">
+        <img id="zoom-img" src="">
+    </div>
+
+    <script>
+        VanillaTilt.init(document.querySelector(".glass-panel"), { max: 5, speed: 400 });function openImg(url) {
+            document.getElementById('zoom-img').src = url;
+            document.getElementById('lightbox').classList.add('active');
+        }
+    </script>
+</body>
+</html>
